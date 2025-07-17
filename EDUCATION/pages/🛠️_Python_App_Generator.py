@@ -8,7 +8,7 @@ from google import genai
 # Set up the page
 st.set_page_config(page_title="AI App Builder", page_icon="🛠️", layout="wide")
 
-client = genai.Client(api_key = "AIzaSyBWc7Ym6qMSo04uD-KtfT1JSin5AqhtyNg")
+client = genai.Client(api_key = "GOOGLE_API_KEY")
 
 
 def generate_app_code(user_prompt):
