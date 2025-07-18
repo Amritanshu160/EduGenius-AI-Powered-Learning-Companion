@@ -1,6 +1,8 @@
 import streamlit as st
 import os
 from google import genai
+from gtts import gTTS
+from gtts.lang import tts_langs
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -33,24 +35,20 @@ st.set_page_config(page_title="Personalized AI Tutor", page_icon="🤖", layout=
 st.title("📘AI Teacher")
 
 # Language selection
-import streamlit as st
+# Get supported languages and create a mapping of language names to codes
+supported_langs = tts_langs()
+# Create a sorted list of (code, name) tuples
+sorted_langs = sorted(supported_langs.items(), key=lambda x: x[1])
+# Create a dictionary for display names to codes
+lang_display_to_code = {name: code for code, name in sorted_langs}
 
-languages = {
-    "English": "en",
-    "Portuguese": "pt",
-    "Spanish": "es",
-    "German": "de",
-    "French": "fr",
-    "Italian": "it",
-    "Dutch": "nl",
-    "Russian": "ru",
-    "Japanese": "ja",
-    "Chinese": "zh",
-    "Korean": "ko",
-    "Hindi": "hi"
-}
-
-language = st.selectbox("🌍 Choose your language for learning:", list(languages.keys()))
+# Language selection
+language = st.selectbox(
+    "Language to translate to:",
+    options=list(lang_display_to_code.keys()),
+    index=None,
+    placeholder="Select language...",
+)
 
 # Input: Educational content
 content = st.text_area("📄 Paste the paragraph/content you'd like to learn from:", height=200)
