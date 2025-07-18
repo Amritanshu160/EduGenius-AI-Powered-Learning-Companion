@@ -1,4 +1,4 @@
-# 🎓 EduGenius App - Your Ultimate Learning Companion 🚀
+# 🎓 EduGenius App - Your Ultimate Learning Companion 
 
 EduGenius is your AI-powered learning companion packed with intelligent tools to supercharge your productivity, enhance your learning, and simplify complex academic tasks — all in one app!
 
